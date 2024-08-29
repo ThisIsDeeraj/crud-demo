@@ -18,18 +18,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($blogs as $blog)
+                        @foreach ($users as $user)
                             <tr>
-                                <td>{{ $blog->title }}</td>
-                                <td>{{ $blog->content }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td>
-                                    <a class="btn btn-info" href="{{ route('blog.edit', $blog->id) }}">edit</a>
+                                    <a class="btn btn-info" href="{{ route('users.edit', $user->id) }}">edit</a>
                                    
                                    
-                                    <form action="{{ route('blog.delete', $blog->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger">delete</button>
+                                  
                                     </form>
                                 </td>
                             </tr>

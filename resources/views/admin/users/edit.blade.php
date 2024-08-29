@@ -5,8 +5,8 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Create Blog</h1>
-            
+            <h1 class="h3 mb-0 text-gray-800">Edit Phone Number</h1>
+
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -17,18 +17,15 @@
                 </ul>
             </div>
         @endif
-
         <!-- Content Row -->
-        <form action="{{ route('blog.store') }}" method="POST">
+        <form action="{{ route('users.update', $user->id) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="row">
-                <label for="">Title</label>
-                <input class="form-control" type="text" value="{{ old('title') }}" name="title">
-                <label for="">Thumbnail</label>
-                <input class="form-control" type="file"  name="thumbnail">
+                <label for="">Phone</label>
+                <input class="form-control" type="text" value="{{ old('phone', $user->contact->phone) }}" name="phone">
 
-                <label for="">Content</label>
-                <textarea class="form-control" name="content" id="" cols="30" rows="10">{{ old('content') }}</textarea>
+
                 <button class="btn btn-primary mt-3 d-block" type="submit">Submit</button>
             </div>
         </form>
